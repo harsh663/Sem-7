@@ -1,0 +1,41 @@
+domains
+	nm,rn,om,mm,pr=symbol
+predicates
+	go
+	rule()
+	student(nm,rn,om,mm,pr)
+clauses
+	go:-
+	write("Enter name of student:-"),nl,readln(N),nl,
+	write("Enter roll number of student:-"),nl,readint(RN),nl,
+	write("Enter subject information for 6 subjects:-"),nl,
+	write("Subject1 name:-"),readln(S1),nl,
+	write("Max marks for subject1:-"),readint(MM1),nl,
+	write("Obtain marks:-"),readint(M1),nl,
+	write("Subject2 name:-"),readln(S2),nl,
+	write("Max marks for subject2:-"),readint(MM2),nl,
+	write("Obtain marks:-"),readint(M2),nl,
+	write("Subject3 name:-"),readln(S3),nl,
+	write("Max marks for subject3:-"),readint(MM3),nl,
+	write("Obtain marks:-"),readint(M3),nl,
+	write("Subject4 name:-"),readln(S4),nl,
+	write("Max marks for subject4:-"),readint(MM4),nl,
+	write("Obtain marks:-"),readint(M4),nl,
+	write("Subject5 name:-"),readln(S5),nl,
+	write("Max marks for subject5:-"),readint(MM5),nl,
+	write("Obtain marks:-"),readint(M5),nl,
+	write("Subject6 name:-"),readln(S6),nl,
+	write("Max marks for subject6:-"),readint(MM6),nl,
+	write("Obtain marks:-"),readint(M6),nl,
+	OOM = M1 + M2 + M3 + M4 + M5 + M6,
+	MMM=MM1+MM2+MM3+MM4+MM5+MM6,
+	PRR=OOM/MMM*100,
+	write("**********RESULT**********"),
+	write("Student name:-"),write(N),nl,
+	write("Roll no - "),write(RN),nl,
+	write("Subject Name- "),write(S1),write(" "),write(S2),write(" "),write(S3),write(" "),write(S4),write(" "),write(S5),write(" "),write(S6),write(" "),nl,
+	write("Total marks-"),write(MMM),nl,
+	write("Total obtain marks -"),write(OOM),nl,
+	write("%Percentage : "),write(PRR),
+	rule(N,RN,OOM,MMM,PRR).
+	rule():student(nm,RN,OOM,MMM,PRR).

@@ -1,0 +1,35 @@
+domains
+	name,m_status,gender,location=symbol
+
+predicates
+	go
+	employee(name,m_status,gender,location)
+	rule(integer)
+clauses
+	go:-
+	write("*********OPTIONS*********"),nl,
+	write("1. Display list of married employees"),nl,
+	write("2. Display list of unmarried employees"),nl,
+	write("3. Display list of male employees"),nl,
+	write("4. Display list of female employees"),nl,
+	write("5. Display list of emplyees at a given location"),readint(X),nl,
+	rule(X).
+	rule(1):-employee(X,married,_,_),write(X),nl,fail.
+		rule(1).
+	rule(2):-employee(X,unmarried,_,_),write(X),nl,fail.
+		rule(2).
+	rule(3):-employee(X,_,male,_),write(X),nl,fail.
+		rule(3).
+	rule(4):-employee(X,_,female,_),write(X),nl,fail.
+		rule(4).
+	rule(5):-write("Enter the locatrion"),nl,
+		readln(Y),
+		employee(X,_,_,Y),write(X),nl,fail.
+		rule(5).
+	employee(rahul,unmarried,male,ahmedabad).
+	employee(chintan,unmarried,male,surat).
+	employee(purvesh,unmarried,male,ahmedabad).
+	employee(vraj,married,male,godhra).
+	employee(sid,unmarried,female,bharuch).
+	employee(meet,unmarried,male,bharuch).
+	

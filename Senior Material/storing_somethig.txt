@@ -1,0 +1,32 @@
+Cookie
+
+---> For Adding cookie in response
+
+		HttpCookie h = new HttpCookie("emp",TextBox1.Text);
+        Response.Cookies.Add(h);
+
+---> For Retriving cookie from request
+
+		Response.Write(Request.Cookies["emp"].Value);
+		
+Session
+
+---> For Adding
+
+		Response.Write(Session.SessionID);
+        Session.Add("name", TextBox1.Text);
+
+---> For Retriving
+		
+		Response.Write(Session["name"].ToString());
+
+Query String
+
+---> For Adding
+
+		string que = "~/default9.aspx?Name=" + TextBox1.Text;
+        Response.Redirect(que);
+		
+---> For Retriving
+
+		Response.Write(Request.QueryString["Name"].ToString());

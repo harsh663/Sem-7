@@ -1,0 +1,40 @@
+<asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath>
+        This is home page<br />
+        <br />
+&nbsp;<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/itdept.aspx">IT</asp:HyperLink>
+        <br />
+        <asp:HyperLink ID="HyperLink2" runat="server" CssClass="auto-style1" NavigateUrl="~/cedept.aspx" style="z-index: 1">CE</asp:HyperLink>
+		
+		
+		____________________________________
+		cedept.aspx
+		
+		
+ <asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath></br>
+        this is ce department
+
+        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style1" NavigateUrl="~/ceassignment.aspx" style="z-index: 1">
+			assignment
+		</asp:HyperLink>
+		
+		_____________________________________
+		itdept.aspx
+		
+<asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath></br>
+        this is it department
+
+        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="auto-style1" NavigateUrl="~/itassignment.aspx" style="z-index: 1">
+			Assignment
+		</asp:HyperLink>
+
+		_____________________________________
+		ceassignment.aspx
+		
+ <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" /></br>
+        this is ce assignment page		
+
+		_____________________________________
+		itassignment.aspx
+		
+<asp:SiteMapPath ID="SiteMapPath1" runat="server"></asp:SiteMapPath></br>
+        this is it assignment page

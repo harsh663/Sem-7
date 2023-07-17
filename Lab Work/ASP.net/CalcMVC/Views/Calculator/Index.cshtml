@@ -1,0 +1,26 @@
+﻿@model CalcMVC.Models.CalculatorModel
+
+@{
+    ViewBag.Title = "CalculatorView";
+}
+<h2 style = "color:blue">@ViewBag.Title</h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+    <legend style="color:blue"> Operation Of Two Numbers </legend>
+    <br /> <br />
+
+    Number1:-
+    @Html.EditorFor(x => x.A)
+    <br /> <br />
+
+    Number2:-
+    @Html.EditorFor(x => x.B) <br /> <br />
+    <input type="submit" value="add" name="command" />
+    <input type="submit" value="sub" name="command" />
+    <input type="submit" value="mul" name="command" />
+    <input type="submit" value="div" name="command" /> <br /> <br />
+    <h2 style="color:red"> @Html.Label("Result is :") @Html.DisplayFor(x => x.Result) </h2>
+</fieldset>
+}
+

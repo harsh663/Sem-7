@@ -1,0 +1,38 @@
+domains
+
+predicates
+	go
+clauses
+	go:-
+	write("Enter name of student: "), readln(N),
+	write("Enter roll number of student: "), readln(R),
+	write("Enter subject information for 6 subjects: \n"),
+	write("Subject name: "), readln(S1),
+	write("Max marks: "), readint(T1),
+	write("Obtained marks: "), readint(M1),
+	write("Subject name: "), readln(S2),
+	write("Max marks: "), readint(T2),
+	write("Obtained marks: "),readint(M2),
+	write("Subject name: "), readln(S3),
+	write("Max marks: "), readint(T3),
+	write("Obtained marks: "), readint(M3),
+	write("Subject name: "), readln(S4),
+	write("Max marks: "), readint(T4),
+	write("Obtained marks: "), readint(M4),
+	write("Subject marks: "), readln(S5),
+	write("Max marks: "), readint(T5),
+	write("Obtained marks: "), readint(M5),
+	write("Subject name: "), readln(S6),
+	write("Max marks: "), readint(T6),
+	write("Obtained marks: "), readint(M6),
+	write("******RESULT****** \n"),
+	write("Student name: "), write(N), nl,
+	write("Roll no: "), write(R), nl,
+	write("Subject names: ",S1,", ",S2,", ",S3,", ",S4,", ",S5,", ",S6), nl,
+	T=T1+T2+T3+T4+T5+T6,
+	M=M1+M2+M3+M4+M5+M6,
+	write("Total max marks: "), write(T), nl,
+	write("Total obtained marks: "), write(M), nl,
+	write("Percentage: "),
+	P=(M/T)*100,
+	write(P),nl.

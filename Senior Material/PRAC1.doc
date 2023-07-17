@@ -1,0 +1,14 @@
+domains
+	name,city,state=symbol
+predicates
+	location(city,state)
+	stays(name,city)
+clauses
+	location(nadiad,gujarat).
+	location(ahmedabad,gujarat).
+	location(rajkot,gujarat).
+	location(jaipur,rajasthan).
+	stays(amit,nadiad).
+	stays(aastha,ahmedabad).
+	stays(aman,rajkot).
+	stays(firoz,jaipur).

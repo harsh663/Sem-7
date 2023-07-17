@@ -1,0 +1,110 @@
+MASTER PAGE
+-----------
+
+<table class="auto-style1" border="2">
+	<tr>
+		<td class="auto-style2" colspan="2">Dharmsinh Desai University NADIAD</td>
+	</tr>
+	<tr>
+		<td class="auto-style3">
+			<table>
+				<tr>
+					<td>
+						<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/WebForm1.aspx">IT</asp:HyperLink>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/WebForm2.aspx">CE</asp:HyperLink>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True">
+							<asp:ListItem Selected="True">India</asp:ListItem>
+							<asp:ListItem>Pakistan</asp:ListItem>
+							<asp:ListItem>Shrilanka</asp:ListItem>
+						</asp:DropDownList>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"> </asp:ContentPlaceHolder>
+		</td>
+	</tr>
+	<tr>
+		<td class="auto-style2" colspan="2">COPYRIGHT BY DDU</td>
+	</tr>
+</table>
+        
+		
+		
+_____________________________________________________
+webform1.aspx using master page...
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    This is page of IT Dept
+    <br />
+
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+</asp:Content>
+
+
+_____________________________________________________
+webform2.aspx using master page...
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    This is page of CE Dept
+    <br />
+
+    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+</asp:Content>
+
+_____________________________________________________
+webform1.aspx.cs & webform2.aspx.cs
+
+namespace Master_exp_121
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            TextBox1.Text = ((DropDownList)Master.FindControl("DropDownList1")).SelectedItem.Text;
+        }
+    }
+}	
+
+_____________________________________________________
+webform5.aspx using master page...
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    This is EC department
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+    WELCOME <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+</asp:Content>
+
+
+_____________________________________________________
+webform5.aspx.cs
+
+public partial class Default5 : System.Web.UI.Page
+{
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        TextBox1.Text = ((TextBox)Master.FindControl("TextBox1")).Text;
+    }
+}

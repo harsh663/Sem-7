@@ -1,0 +1,66 @@
+<form id="form1" runat="server">
+    <asp:Label ID="Label1" runat="server" Text="Enter Detail :"></asp:Label>
+    <asp:Label ID="Label2" runat="server" Text="ID : "></asp:Label>
+    <asp:TextBox ID="id" runat="server" ></asp:TextBox>
+	<asp:Label ID="Label3" runat="server" Text="Name : "></asp:Label>
+    <asp:TextBox ID="name" runat="server" ></asp:TextBox>
+    <asp:Label ID="Label4" runat="server" Text="Sem : "></asp:Label>
+    <asp:TextBox ID="sem" runat="server"></asp:TextBox>
+    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submit" />
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:RegiConnectionString %>" SelectCommand="SELECT * FROM [Student]">
+	</asp:SqlDataSource>
+</form>
+
+
+___________________________________
+.cs file
+
+namespace web_form
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (IsPostBack)
+            {
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegiConnectionString"].ConnectionString);
+                conn.Open();
+                string checkuser = "select count(*) from Student where id='" + id.Text + "'";
+                SqlCommand cmd = new SqlCommand(checkuser, conn);
+                int temp = Convert.ToInt32(cmd.ExecuteScalar().ToString());
+
+                if (temp == 1)
+                {
+                    Response.Write("Student Already Exist");
+                }
+
+                conn.Close();
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["RegiConnectionString"].ConnectionString);
+                conn.Open();
+                string insertQuery = "insert into Student(id,name,sem)values (@id,@name,@sem)";
+                SqlCommand cmd = new SqlCommand(insertQuery, conn);
+                cmd.Parameters.AddWithValue("@id", id.Text);
+                cmd.Parameters.AddWithValue("@name", name.Text);
+                cmd.Parameters.AddWithValue("@sem", sem.Text);
+                cmd.ExecuteNonQuery();
+
+                Response.Write("Student registeration Successfully!!!thank you");
+
+                conn.Close();
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("error" + ex.ToString());
+            }
+        }
+    }
+}

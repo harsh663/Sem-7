@@ -1,0 +1,43 @@
+domains
+	name,status,city=symbol
+predicates
+	go
+	marital_status(name,status)
+	male(name)
+	female(name)
+	location(name,city)
+	rule(integer)
+	continue(symbol)
+clauses
+	go:-
+	write("*****OPTIONS***** \n"),
+	write("1. Display list of married employees \n"),
+	write("2. Display list of unmarried employees \n"),
+	write("3. Display list of male employees \n"),
+	write("4. Display list of female employees \n"),
+	write("5. Display list of employees at a given location"),
+	readint(X),
+	rule(X),
+	write("Do you want to continue? (y/n) \n"),
+	readln(Y),
+	continue(Y).
+	rule(1):- marital_status(Y,married),write(Y),nl,fail.
+	rule(1).
+	rule(2):- marital_status(Y,unmarried),write(Y),nl,fail.
+	rule(2).
+	rule(3):- male(Y),write(Y),nl,fail.
+	rule(3).
+	rule(4):- female(Y),write(Y),nl,fail.
+	rule(4).
+	rule(5):- write("Enter location: "),readln(Y),location(Z,Y),write(Z),nl,fail.
+	rule(5).
+	continue(y):- go.
+	marital_status(rahul,married).
+	marital_status(harsh,unmarried).
+	marital_status(anjali,married).
+	male(rahul).
+	male(harsh).
+	female(anjali).
+	location(rahul,mumbai).
+	location(harsh,banglore).
+	location(anjali,pune).

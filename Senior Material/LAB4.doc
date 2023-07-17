@@ -1,0 +1,42 @@
+domains
+	name,age,jobloc,ms,gen=string
+predicates
+	status(name,ms)
+	gender(name,gen)
+	location(name,jobloc)
+	stat
+	genderof
+	locationof
+clauses
+	stat:-
+		write("Enter status : "),nl,
+		readln(St),
+		status(Person,St),
+		write(Person),nl,fail.
+	stat.
+	genderof:-
+		write("Enter gender : "),nl,
+		readln(Gen),
+		gender(Person,Gen),
+		write(Person),nl,fail.
+	genderof.
+	locationof:-
+		write("Enter location : "),nl,
+		readln(Loc),
+		location(Person,Loc),
+		write(Person),nl,fail.
+	locationof.
+	status(arpit,unmarried).
+	status(rahul,unmarried).
+	status(ram,married).
+	status(sita,married).
+	gender(arpit,male).
+	gender(rahul,male).
+	gender(ram,male).
+	gender(sita,female).
+	location(arpit,nadiad).
+	location(rahul,abad).
+	location(ram,surat).
+	location(sita,baroda).
+	
+		

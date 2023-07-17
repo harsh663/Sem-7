@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DDUmaster.master.cs" Inherits="DDUmaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+   
+    <style type="text/css">
+        .auto-style1 {
+            width: 835px;
+            height: 391px;
+        }
+        .auto-style2 {
+            height: 391px;
+            width: 122px;
+        }
+    </style>
+   
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+<table>
+    <tr><td colspan="2" style="font-weight: 700; text-align: center; font-size: x-large;">dharmsinh desai university</td></tr>
+    <tr><td class="auto-style2">
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ITDEPT.aspx">IT</asp:HyperLink>
+        <br />
+        <br />
+        <asp:HyperLink ID="HyperLink2" runat="server">CE</asp:HyperLink>
+        <br />
+        <br />
+        <asp:HyperLink ID="HyperLink3" runat="server">EC</asp:HyperLink>
+        <br />
+        <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:ListItem>India</asp:ListItem>
+            <asp:ListItem>USA</asp:ListItem>
+            <asp:ListItem>UK</asp:ListItem>
+        </asp:DropDownList>
+        </td><td class="auto-style1">this start of masterpage
+            
+               <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+            This is end of master page
+
+             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+
+             </td></tr>
+    <tr><td style="text-align: center" colspan="2">copyright by ddu</td></tr>
+
+</table>
+
+
+
+
+
+     
+    </div>
+    </form>
+</body>
+</html>

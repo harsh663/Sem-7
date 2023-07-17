@@ -1,0 +1,16 @@
+domains
+	city,state,person=symbol
+predicates
+	location(city,state)
+	stays(person,city)
+	rule(symbol,symbol)
+clauses
+	stays(ram,anand).
+	stays(laxman,anand).
+	stays(seeta,baroda).
+	stays(ram,columbo).
+	location(anand,gujarat).
+	location(baroda,gujarat).
+	location(columbo,srilanka).
+	
+	rule(X,Z):-stays(X,Y),location(Y,Z).

@@ -1,0 +1,17 @@
+domains
+	name=symbol
+predicates
+	parent(name,name)
+	male(name)
+	female(name)
+clauses
+	parent(dasharath,ram).
+	parent(kaushalya,ram).
+	parent(ram,luv).
+	parent(ram,kush).
+	parent(sita,luv).
+	parent(sita,kush).
+	male(dasharath).
+	male(ram).
+	female(kaushalya).
+	female(sita).

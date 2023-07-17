@@ -1,0 +1,165 @@
+
+webservice.cs----------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+using System.Data;
+using System.Data.SqlClient;
+
+/// <summary>
+/// Summary description for WebService
+/// </summary>
+[WebService(Namespace = "http://tempuri.org/")]
+[WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
+// To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+// [System.Web.Script.Services.ScriptService]
+public class WebService : System.Web.Services.WebService
+{
+
+    public WebService()
+    {
+
+        //Uncomment the following line if using designed components 
+        //InitializeComponent(); 
+    }
+
+    [WebMethod]
+    public string HelloWorld()
+    {
+        return "Hello World";
+    }
+    [WebMethod]
+    public string authenticate(string uname,string pwd)
+    {
+        SqlConnection cn = new SqlConnection();
+        cn.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\user1\Documents\WebSite15\App_Data\Database.mdf;Integrated Security=True";
+
+        cn.Open();
+
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandText = "select * from userdata where username='"+uname+"'";
+        cmd.Connection = cn;
+
+        int i = 0;
+            i = cmd.ExecuteNonQuery();
+        SqlDataAdapter sd = new SqlDataAdapter();
+        sd.SelectCommand = cmd;
+
+        DataSet ds = new DataSet();
+        sd.Fill(ds, "t1");
+        //return ""+i;
+
+
+       if ( (pwd.Equals( ds.Tables["t1"].Rows[0][2].ToString())))
+            {
+               return "successfully login";
+            }
+        else
+        {
+           return "error";
+
+        }
+        
+
+
+
+
+       
+    }
+
+}
+
+
+--------------------------------------------------------------------------------------------
+loginpage.aspx
+
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="login page.aspx.cs" Inherits="login_page" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            position: absolute;
+            top: 137px;
+            left: 60px;
+            z-index: 1;
+        }
+        .auto-style2 {
+            position: absolute;
+            top: 192px;
+            left: 59px;
+            z-index: 1;
+        }
+        .auto-style3 {
+            position: absolute;
+            top: 188px;
+            left: 179px;
+            z-index: 1;
+        }
+        .auto-style4 {
+            position: absolute;
+            top: 129px;
+            left: 187px;
+            z-index: 1;
+        }
+        .auto-style5 {
+            position: absolute;
+            top: 255px;
+            left: 131px;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    
+    </div>
+        <asp:Button ID="Button1" runat="server" CssClass="auto-style5" OnClick="Button1_Click" Text="login" />
+        <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style4"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style3" TextMode="Password"></asp:TextBox>
+        <asp:Label ID="Label1" runat="server" CssClass="auto-style1" Text="username"></asp:Label>
+        <asp:Label ID="Label2" runat="server" CssClass="auto-style2" Text="password"></asp:Label>
+    </form>
+</body>
+</html>
+-------------------------------------------------------------------------------------------
+loginpage.aspx.cs
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class login_page : System.Web.UI.Page
+{
+    WebService w = new WebService();
+    String a, b, c;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+        a = TextBox1.Text.ToString();
+        b = TextBox2.Text.ToString();
+        c = w.authenticate(a, b);
+        Response.Write(c.ToString());
+    }
+}
+
+
+

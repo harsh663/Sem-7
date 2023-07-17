@@ -1,0 +1,26 @@
+<asp:TreeView ID="TreeView1" runat="server" ExpandDepth="1">
+	<Nodes>
+		<asp:TreeNode Text="Companies" Value="Companies">
+			<asp:TreeNode Text="TATA" Value="TATA">
+				<asp:TreeNode NavigateUrl="~/tcs.aspx" Text="TCS" Value="TCS"></asp:TreeNode>
+				<asp:TreeNode NavigateUrl="~/tata_motors.aspx" Text="TATA Motors" Value="TATA Motors"></asp:TreeNode>
+			</asp:TreeNode>
+			<asp:TreeNode Text="BIRLA" Value="BIRLA">
+				<asp:TreeNode Text="Idea" Value="Idea"></asp:TreeNode>
+			</asp:TreeNode>
+			<asp:TreeNode Text="RELIENCE" Value="RELIENCE">
+				<asp:TreeNode Text="Jio Internet" Value="Jio Internet"></asp:TreeNode>
+			</asp:TreeNode>
+		</asp:TreeNode>
+	</Nodes>
+</asp:TreeView>
+		
+		
+<asp:TreeView ID="TreeView2" runat="server" CssClass="auto-style1" DataSourceID="XmlDataSource1" OnSelectedNodeChanged="TreeView2_SelectedNodeChanged">
+	<DataBindings>
+		<asp:TreeNodeBinding DataMember="student" TextField="nmae" />
+		<asp:TreeNodeBinding DataMember="address" TextField="city" ValueField="city" />
+		<asp:TreeNodeBinding DataMember="passing_year" TextField="#InnerText" ValueField="#InnerText" />
+		<asp:TreeNodeBinding DataMember="cpi" TextField="#InnerText" ValueField="#InnerText" />
+	</DataBindings>
+</asp:TreeView>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Tree>
+<Product1>
+<Product_id>1</Product_id>
+<Product_name>PRODUCT1</Product_name>
+<Product_price>1000</Product_price>
+</Product1>
+<Product2>
+<Product_id>2</Product_id>
+<Product_name>PRODUCT2</Product_name>
+<Product_price>2000</Product_price>
+</Product2>
+<Product3>
+<Product_id>3</Product_id>
+<Product_name>PRODUCT3</Product_name>
+<Product_price>3000</Product_price>
+</Product3>
+<Product4>
+<Product_id>4</Product_id>
+<Product_name>PRODUCT4</Product_name>
+<Product_price>4000</Product_price>
+</Product4>
+</Tree>
