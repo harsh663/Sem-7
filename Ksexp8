@@ -1,49 +1,62 @@
-/*compound object conceptually similar to 'struct' in c/ domains
+/*compound object - conceptually similar to 'struct' in c */ domains
 
-myobj-stdinfo(rno, details); briefdata(symbol, symbol)
+myobj=stdin fo (rno, details) ; briefdata (symbol, symbol)
 
-rno-integer
+rno=integer
 
-details details (name, address, phnumber)
+details=details (name, address, phnumber)
 
-name symbol address address(street, city)
+name=s ymbol
 
-street, city symbol
+address=address (street, city)
 
-phnumber integer predicates
+street, city=symbol phnumber=integer predicates
 
-getdata dispdata(myobj)
+getdata
+
+dispdata (myobj)
 
 clauses
 
-getdata:- write("enter one students record") write("enter his roll number"),
+getdata: -
 
-readint(Rno),
+write("enter one students record") ,
 
-write("enter his name"), readln(Name),
+write("enter his roll number"),
+
+readint (Rno) ,
+
+write("enter his name"),
+
+readln(Name)
 
 write("enter his street"),
 
-readIn(Street),
+readln(Street) ,
 
-write("enter his city"), readIn(City),
+write("enter his city"),
+
+readln(City),
 
 write("enter his phone number"),
 
-readint(Ph), Data-stdinfo(Rno, details (Name, address (Street, City), Ph)),
+readint (Ph),
 
-dispdata(Data), Bdata-briefdata (Name, City),
+Data=stdinfo (Rno, details (Name, address (Street, City), Ph) ),
+
+dispdata (Data)
+
+Bdata=briefdata (Name, City),
 
 dispdata(Bdata).
 
-dispdata(stdinfo(R, details (N, address(5,C),P) }):-
+dispdata (stdinfo (R, details (N, address (S, C) , P) )):-
 
-write("Data entered are"),nl,
+write("Data entered are ---"), nl, write(R, " ",N," ",S, " ",C," ", P).
 
-write(R," ",N," ",S," ",C," ",P
+dispdata (briefdata(x, Y) ): -
 
-dispdata(briefdata(X,Y)):- write("data in brief is --"),
+write(" data in brief is --"),
 
-write(X),
+write(X), write(Y).
 
-write(Y).
